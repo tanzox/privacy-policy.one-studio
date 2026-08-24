@@ -6,23 +6,24 @@
     <title>Privacy Policy - ONE Authenticator</title>
     <style>
         /* =========================================================
-           EASY COLOR & UI CUSTOMIZATION (CSS VARIABLES)
+           GLOBAL CSS VARIABLES (EASY COLOR & STYLE TWEAKS)
            ========================================================= */
         :root {
-            --bg-color: #000000;               /* iOS Pure Black Background */
-            --card-bg: #3A3A3C;                /* Requested Card Color */
-            --card-inner-bg: #2C2C2E;          /* Secondary Card Background */
-            --text-primary: #FFFFFF;           /* iOS Primary Text */
-            --text-secondary: #8E8E93;         /* iOS System Gray Text */
-            --text-muted: #636366;             /* Muted Subtext */
-            --accent-color: #FFA000;           /* Brand Amber Accent Color */
-            --accent-light: rgba(255, 160, 0, 0.15);
-            --divider-color: rgba(255, 255, 255, 0.1); /* iOS Hairline Divider */
-            --card-radius: 14px;               /* iOS Grouped Radius */
-            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --bg-color: #000000;               /* Pure Pitch Black */
+            --card-bg: #3A3A3C;                /* iOS Dark Secondary Card */
+            --card-inner: #2C2C2E;             /* Secondary Inner Container */
+            --text-primary: #FFFFFF;           /* iOS Primary White */
+            --text-secondary: #A1A1A6;         /* iOS System Gray */
+            --text-muted: #6E6E73;             /* Darker Subtext */
+            --accent-color: #FFA000;           /* Brand Amber Accent */
+            --accent-glow: rgba(255, 160, 0, 0.15);
+            --success-color: #81C784;          /* Soft Trust Green */
+            --success-glow: rgba(129, 199, 132, 0.15);
+            --divider-color: rgba(255, 255, 255, 0.1);
+            --card-radius: 16px;
+            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
         }
 
-        /* Reset & Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -34,111 +35,85 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: var(--font-family);
-            line-height: 1.5;
-            padding: 16px 16px 60px 16px;
-            max-width: 500px;
+            line-height: 1.6;
+            padding: 24px 16px 80px 16px;
+            max-width: 520px;
             margin: 0 auto;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* iOS Navigation / Header Bar */
-        .ios-nav-header {
+        /* Header & Branding */
+        .header-brand {
             text-align: center;
-            padding: 20px 0 16px 0;
+            padding: 12px 0 24px 0;
         }
 
-        .app-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #FFA000, #FF6D00);
-            border-radius: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .studio-logo {
+            max-width: 180px;
+            height: auto;
+            max-height: 52px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 6px 16px rgba(255, 160, 0, 0.25));
+        }
+
+        .page-title {
             font-size: 26px;
             font-weight: 700;
-            color: #FFFFFF;
-            box-shadow: 0 8px 20px rgba(255, 160, 0, 0.25);
-            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        .app-title {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.4px;
-        }
-
-        .studio-tag {
+        .page-sub {
             color: var(--text-secondary);
             font-size: 13px;
-            margin-top: 2px;
-            font-weight: 400;
+            margin-top: 3px;
         }
 
-        .badge-container {
-            margin-top: 10px;
+        .badge-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: var(--accent-light);
+        .trust-badge {
+            background-color: var(--success-glow);
+            color: var(--success-color);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+        }
+
+        .updated-badge {
+            background-color: var(--accent-glow);
             color: var(--accent-color);
             font-size: 11px;
             font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 12px;
-            letter-spacing: 0.2px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 160, 0, 0.3);
         }
 
-        /* iOS Search Bar */
-        .search-wrapper {
-            margin: 16px 0 20px 0;
-            position: relative;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 11px 16px 11px 36px;
-            background-color: var(--card-bg);
-            border: none;
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-size: 14px;
-            font-family: var(--font-family);
-            outline: none;
-        }
-
-        .search-bar::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        /* iOS Grouped Section Card */
-        .ios-group {
-            background-color: var(--card-bg);
-            border-radius: var(--card-radius);
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .group-header-label {
+        /* Grouped Section Label */
+        .ios-group-label {
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             color: var(--text-secondary);
-            margin: 0 0 6px 12px;
+            margin: 22px 0 8px 12px;
             letter-spacing: -0.1px;
         }
 
-        /* Highlights Grid (2x2) */
+        .ios-card-group {
+            background-color: var(--card-bg);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+        }
+
+        /* 2x2 Highlights Grid */
         .highlights-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -146,129 +121,125 @@
             background-color: var(--divider-color);
         }
 
-        .highlight-item {
+        .highlight-box {
             background-color: var(--card-bg);
-            padding: 14px;
+            padding: 16px;
         }
 
-        .highlight-icon {
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
+        .highlight-icon { font-size: 22px; margin-bottom: 6px; }
+        .highlight-head { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .highlight-sub { font-size: 11px; color: var(--text-secondary); margin-top: 2px; line-height: 1.4; }
 
-        .highlight-title {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .highlight-desc {
-            font-size: 11px;
-            color: var(--text-secondary);
-            line-height: 1.3;
-            margin-top: 2px;
-        }
-
-        /* Policy List Rows */
-        .policy-item {
-            padding: 14px 16px;
+        /* Detailed Policy Rows */
+        .policy-row {
+            padding: 18px;
             border-bottom: 1px solid var(--divider-color);
-            transition: background-color 0.15s;
         }
 
-        .policy-item:last-child {
-            border-bottom: none;
-        }
+        .policy-row:last-child { border-bottom: none; }
 
-        .policy-item.hidden {
-            display: none;
-        }
-
-        .item-title-row {
+        .row-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        .item-number {
-            font-size: 12px;
+        .num-pill {
+            font-size: 11px;
             font-weight: 700;
             color: var(--accent-color);
-            background-color: var(--accent-light);
-            width: 20px;
-            height: 20px;
+            background-color: var(--accent-glow);
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
-        .item-title {
-            font-size: 15px;
+        .row-title {
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: -0.2px;
         }
 
-        .item-body {
+        .row-content {
             font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.5;
-            padding-left: 30px;
+            line-height: 1.6;
+            padding-left: 32px;
         }
 
-        .item-body ul {
-            padding-left: 16px;
-            margin-top: 6px;
+        .row-content p {
+            margin-bottom: 10px;
         }
 
-        .item-body li {
-            margin-bottom: 4px;
+        .row-content p:last-child {
+            margin-bottom: 0;
         }
 
-        /* Developer & Contact Card */
-        .developer-card {
-            background-color: var(--card-bg);
-            border-radius: var(--card-radius);
-            padding: 16px;
-            text-align: center;
-            margin-bottom: 24px;
+        .row-content ul {
+            padding-left: 18px;
+            margin: 8px 0;
         }
 
-        .dev-title {
-            font-size: 15px;
+        .row-content li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-text {
+            color: var(--text-primary);
             font-weight: 600;
+        }
+
+        /* Callout Trust Box */
+        .callout-box {
+            background-color: var(--card-inner);
+            border-left: 3px solid var(--accent-color);
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 12px;
             color: var(--text-primary);
         }
 
-        .dev-subtitle {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin: 4px 0 14px 0;
+        /* Developer Contact Box */
+        .dev-card {
+            background-color: var(--card-bg);
+            border-radius: var(--card-radius);
+            padding: 22px;
+            text-align: center;
+            margin-top: 28px;
         }
 
-        .ios-button {
+        .dev-name { font-size: 16px; font-weight: 600; }
+        .dev-sub { font-size: 12px; color: var(--text-secondary); margin: 6px 0 16px 0; line-height: 1.4; }
+
+        .ios-btn {
             display: inline-block;
             background-color: var(--accent-color);
             color: #000000;
             font-size: 13px;
-            font-weight: 600;
-            padding: 10px 22px;
-            border-radius: 20px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 24px;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: opacity 0.15s, transform 0.15s;
         }
 
-        .ios-button:active {
-            opacity: 0.7;
+        .ios-btn:active {
+            opacity: 0.8;
+            transform: scale(0.98);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             color: var(--text-muted);
             font-size: 11px;
-            padding-bottom: 20px;
+            margin-top: 40px;
+            line-height: 1.6;
         }
 
         /* Floating Top Button */
@@ -276,8 +247,8 @@
             position: fixed;
             bottom: 24px;
             right: 20px;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background-color: var(--card-bg);
             border: 1px solid var(--divider-color);
             color: var(--text-primary);
@@ -286,7 +257,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
@@ -302,171 +273,208 @@
 </head>
 <body>
 
-    <!-- iOS Nav Header -->
-    <div class="ios-nav-header">
-        <div class="app-icon">1</div>
-        <div class="app-title">ONE Authenticator</div>
-        <div class="studio-tag">By ONE Studio &bull; Developed by Rafat Ahmed</div>
-        <div class="badge-container">
-            <span class="badge">Privacy Policy &bull; Version 1.0</span>
+    <!-- Header & Branding -->
+    <div class="header-brand">
+        <img src="assets/one_studio.png" alt="ONE Studio" class="studio-logo">
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="page-sub">ONE Authenticator &bull; Developed by Rafat Ahmed</p>
+        <div class="badge-container badge-bar">
+            <span class="trust-badge">🛡️ Encrypted & Private</span>
+            <span class="updated-badge">Updated: August 2026</span>
         </div>
     </div>
 
-    <!-- Highlights 2x2 Grid -->
-    <div class="group-header-label">At a Glance</div>
-    <div class="ios-group">
+    <!-- Security at a Glance -->
+    <div class="ios-group-label">Security at a Glance</div>
+    <div class="ios-card-group">
         <div class="highlights-grid">
-            <div class="highlight-item">
-                <div class="highlight-icon">🔐</div>
-                <div class="highlight-title">Zero-Knowledge</div>
-                <div class="highlight-desc">Client-side local encryption for secret keys.</div>
+            <div class="highlight-box">
+                <div class="highlight-icon">🔒</div>
+                <div class="highlight-head">Local-First Encryption</div>
+                <div class="highlight-sub">Secret keys are generated and calculated 100% offline on your device.</div>
             </div>
-            <div class="highlight-item">
+            <div class="highlight-box">
                 <div class="highlight-icon">📷</div>
-                <div class="highlight-title">Camera Only</div>
-                <div class="highlight-desc">Used strictly for live QR code scanning.</div>
+                <div class="highlight-head">Camera Access</div>
+                <div class="highlight-sub">Used strictly for scanning 2FA QR setup codes. Zero recording.</div>
             </div>
-            <div class="highlight-item">
+            <div class="highlight-box">
                 <div class="highlight-icon">☁️</div>
-                <div class="highlight-title">Encrypted Sync</div>
-                <div class="highlight-desc">Private Firebase backup tied to your UID.</div>
+                <div class="highlight-head">Encrypted Cloud Sync</div>
+                <div class="highlight-sub">Protected backup isolated strictly under your account session.</div>
             </div>
-            <div class="highlight-item">
+            <div class="highlight-box">
                 <div class="highlight-icon">🚫</div>
-                <div class="highlight-title">No Ads/Tracking</div>
-                <div class="highlight-desc">Zero third-party trackers or ad profiling.</div>
+                <div class="highlight-head">Zero Ads & Selling</div>
+                <div class="highlight-sub">We do not track, monetize, or sell user authentication data.</div>
             </div>
         </div>
     </div>
 
-    <!-- Grouped Policy Items -->
-    <div class="group-header-label">Policy Details</div>
-    <div class="ios-group" id="policyGroup">
+    <!-- Detailed Policy Sections -->
+    <div class="ios-group-label">Comprehensive Privacy Disclosures</div>
+    <div class="ios-card-group">
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">1</span>
-                <span class="item-title">Overview & Ownership</span>
+        <!-- 1. Introduction -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">1</span>
+                <span class="row-title">Introduction & Ownership</span>
             </div>
-            <div class="item-body">
-                This Privacy Policy governs the <strong>ONE Authenticator</strong> application, published by <strong>ONE Studio</strong> and created by developer <strong>Rafat Ahmed</strong>. We respect your privacy and process all data in compliance with strict cybersecurity standards.
+            <div class="row-content">
+                <p>Welcome to <strong>ONE Authenticator</strong> ("we", "our", or "us"), published by <strong>ONE Studio</strong> and architected by lead developer <strong>Rafat Ahmed</strong>. ONE Authenticator is a dedicated 2-Factor Authentication (2FA) security utility designed to generate Time-based One-Time Passwords (TOTP) compliant with RFC 6238 standards.</p>
+                <p>Your digital security is our highest priority. This Privacy Policy provides full transparency on how data is handled, stored, encrypted, and synchronized across your devices.</p>
             </div>
         </div>
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">2</span>
-                <span class="item-title">Data Storage & Local First</span>
+        <!-- 2. Data Collection -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">2</span>
+                <span class="row-title">Information We Process</span>
             </div>
-            <div class="item-body">
-                Your 2-Factor Authentication (2FA) accounts operate on a local-first principle:
+            <div class="row-content">
+                <p>To provide 2FA token generation and account recovery, ONE Authenticator processes the following minimal information:</p>
                 <ul>
-                    <li>Secret keys are stored in encrypted local storage (`SharedPreferences`).</li>
-                    <li>TOTP 6-digit codes are calculated offline on your processor.</li>
-                    <li>Clearing app data removes local tokens from the device.</li>
+                    <li><span class="highlight-text">Authentication Account Credentials:</span> Your account email, display name, and profile picture (when signed into your user session).</li>
+                    <li><span class="highlight-text">2FA Account Records:</span> Service Name (e.g., Facebook, Google), Account Identifier (e.g., email or username), Base32 Secret Key, and chosen Avatar Accent Color.</li>
+                    <li><span class="highlight-text">Security Preferences:</span> App lock states, screen security flags, and theme customization choices.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">3</span>
-                <span class="item-title">Camera & Photo Permissions</span>
+        <!-- 3. Safe Storage Architecture -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">3</span>
+                <span class="row-title">How Your Data is Stored Safely</span>
             </div>
-            <div class="item-body">
-                We access device hardware solely to provide core functionality:
+            <div class="row-content">
+                <p>We implement a dual-layer, local-first hybrid storage system designed to maximize both offline speed and cloud safety:</p>
+
+                <div class="callout-box">
+                    <strong>🔐 Encrypted Local Storage:</strong> All account secrets are stored locally in private application memory (`SharedPreferences`). No other installed applications on your phone can access or read these records.
+                </div>
+
+                <div class="callout-box">
+                    <strong>☁️ Secure Cloud Database Isolation:</strong> When signed in, your accounts are synchronized with our secure cloud database strictly under your unique account identifier (`users/{UID}`).
+                </div>
+
+                <p>Our database security rules strictly enforce <span class="highlight-text">Account-Based Access Control</span>. This ensures that even if another user uses the app on a different device, they can never read, modify, or intercept your cloud records.</p>
+            </div>
+        </div>
+
+        <!-- 4. TOTP Calculation -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">4</span>
+                <span class="row-title">Zero-Knowledge Offline TOTP Generation</span>
+            </div>
+            <div class="row-content">
+                <p>Your 6-digit verification codes are calculated locally on your smartphone's processor using HMAC-SHA1 algorithms. <span class="highlight-text">An active internet connection is never required to generate 2FA codes.</span> Your raw secret keys are never transmitted to unauthenticated third-party servers.</p>
+            </div>
+        </div>
+
+        <!-- 5. Hardware Permissions -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">5</span>
+                <span class="row-title">Hardware Permissions & Usage</span>
+            </div>
+            <div class="row-content">
+                <p>To deliver core authentication features, ONE Authenticator requests access to specific device hardware:</p>
                 <ul>
-                    <li><strong>Camera:</strong> Used exclusively to scan 2FA setup QR codes.</li>
-                    <li><strong>Gallery/Album:</strong> Accesses selected images only when choosing a custom profile picture or scanning a saved QR code image.</li>
+                    <li><span class="highlight-text">Camera Permission:</span> Used strictly for scanning 2FA QR setup codes. Video feeds are processed in real-time RAM and are never recorded or saved.</li>
+                    <li><span class="highlight-text">Photo Album & Media:</span> Used only when you manually select a saved QR image or upload a custom profile picture. We do not access or read unselected photos.</li>
+                    <li><span class="highlight-text">Biometric Hardware:</span> Used for App Lock. Biometric validation (fingerprint or face) is processed exclusively inside Android's Hardware Security Module (TEE) and is never transmitted to any external server.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">4</span>
-                <span class="item-title">Firebase Cloud Backup</span>
+        <!-- 6. App Security Features -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">6</span>
+                <span class="row-title">Screen Security & Privacy Controls</span>
             </div>
-            <div class="item-body">
-                Cloud backup uses <strong>Firebase Realtime Database</strong> to protect against data loss:
+            <div class="row-content">
+                <p>When you enable "Block Screenshots" in settings, ONE Authenticator applies system-level security protection:</p>
                 <ul>
-                    <li>Data is organized strictly under your authenticated User ID (`users/{UID}`).</li>
-                    <li>Only your signed-in account can read or write to your personal database node.</li>
+                    <li>Prevents unauthorized screenshots or screen recordings of your 2FA codes.</li>
+                    <li>Automatically blanks out the app preview in Android's Recent Apps / Multitasking switcher.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">5</span>
-                <span class="item-title">Biometric Security</span>
+        <!-- 7. Data Deletion Rights -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">7</span>
+                <span class="row-title">Data Control & Permanent Deletion</span>
             </div>
-            <p class="item-body">
-                When enabled, App Lock uses Android's native Biometric API (`androidx.biometric`). Biometric credentials (fingerprint or face) are processed inside your device's hardware security module and are never collected or transmitted.
-            </p>
+            <div class="row-content">
+                <p>You maintain 100% control over your stored accounts and data lifecycle:</p>
+                <ul>
+                    <li><span class="highlight-text">Permanent Account Deletion:</span> Deleting a 2FA record in the app removes it instantly from local device storage and overwrites the record in the cloud database.</li>
+                    <li><span class="highlight-text">Profile Picture Removal:</span> Deleting a custom avatar removes the record from cloud storage and restores your default profile photo.</li>
+                    <li><span class="highlight-text">App Data Wiping:</span> Clearing application data or signing out purges local tokens. Signing back in restores your encrypted cloud backup.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="policy-item">
-            <div class="item-title-row">
-                <span class="item-number">6</span>
-                <span class="item-title">Data Deletion & Control</span>
+        <!-- 8. Third-Party Infrastructure -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">8</span>
+                <span class="row-title">Third-Party Infrastructure</span>
             </div>
-            <div class="item-body">
-                You maintain complete authority over your stored records:
-                <ul>
-                    <li>Deleting a 2FA account removes it permanently from both local storage and cloud database.</li>
-                    <li>Deleting a custom avatar reverts the profile to your default Google account photo.</li>
-                </ul>
+            <div class="row-content">
+                <p>We rely on secure cloud authentication and database infrastructure. We do not integrate third-party advertising SDKs, behavioral analytics trackers, or commercial data brokers.</p>
+            </div>
+        </div>
+
+        <!-- 9. Policy Updates -->
+        <div class="policy-row">
+            <div class="row-header">
+                <span class="num-pill">9</span>
+                <span class="row-title">Policy Changes & Compliance</span>
+            </div>
+            <div class="row-content">
+                <p>We may update this Privacy Policy periodically to reflect security enhancements or Google Play Store policy requirements. Continued usage of ONE Authenticator indicates acceptance of the updated policy terms.</p>
             </div>
         </div>
 
     </div>
 
-    <!-- Developer & Contact Card -->
-    <div class="group-header-label">Developer Support</div>
-    <div class="developer-card">
-        <div class="dev-title">ONE Studio &bull; Rafat Ahmed</div>
-        <div class="dev-subtitle">If you have any security inquiries or policy feedback, feel free to reach out.</div>
-        <a href="mailto:rafsanhosain.io@gmail.com" class="ios-button">Contact Developer</a>
+    <!-- Developer Contact Card -->
+    <div class="dev-card">
+        <div class="dev-name">ONE Studio &bull; Rafat Ahmed</div>
+        <div class="dev-sub">For security audits, privacy questions, or developer support, contact us directly.</div>
+        <a href="mailto:rafatverse@gmail.com" class="ios-btn">Contact Developer</a>
     </div>
 
     <!-- Footer -->
     <footer>
         &copy; 2026 ONE Studio. All Rights Reserved.<br>
-        Developed by Rafat Ahmed
+        Architected by Rafat Ahmed
     </footer>
 
-    <!-- Floating Scroll Button -->
-    <button id="btnTop" class="fab-top" onclick="scrollTopSmooth()" aria-label="Scroll to top">↑</button>
+    <!-- Floating Back to Top Button -->
+    <button id="fabTop" class="fab-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
     <!-- Embedded JavaScript -->
     <script>
-        // Interactive Topic Filtering
-        function filterTopics() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            const items = document.querySelectorAll('.policy-item');
-
-            items.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
-
         // Scroll to Top Toggle
-        const btnTop = document.getElementById('btnTop');
+        const fabTop = document.getElementById('fabTop');
         window.onscroll = function() {
             if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-                btnTop.classList.add('visible');
+                fabTop.classList.add('visible');
             } else {
-                btnTop.classList.remove('visible');
+                fabTop.classList.remove('visible');
             }
         };
 
-        function scrollTopSmooth() {
+        function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'

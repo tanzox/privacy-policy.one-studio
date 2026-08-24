@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Terms of Use - ONE Authenticator</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #3A3A3C;
+            --text-primary: #FFFFFF;
+            --text-secondary: #8E8E93;
+            --text-muted: #636366;
+            --accent-color: #FFA000;
+            --divider-color: rgba(255, 255, 255, 0.1);
+            --card-radius: 16px;
+            --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.5;
+            padding: 24px 16px 60px 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .header-brand {
+            text-align: center;
+            padding: 12px 0 24px 0;
+        }
+
+        .studio-logo {
+            max-width: 170px;
+            height: auto;
+            max-height: 48px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 4px 12px rgba(255, 160, 0, 0.2));
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+
+        .page-sub {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .ios-group-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin: 20px 0 6px 12px;
+            letter-spacing: -0.1px;
+        }
+
+        .ios-card-group {
+            background-color: var(--card-bg);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+        }
+
+        .term-row {
+            padding: 16px;
+            border-bottom: 1px solid var(--divider-color);
+        }
+
+        .term-row:last-child { border-bottom: none; }
+
+        .term-head {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .term-body {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-top: 36px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-brand">
+        <img src="assets/one_studio.png" alt="ONE Studio" class="studio-logo">
+        <h1 class="page-title">Terms of Use</h1>
+        <p class="page-sub">ONE Authenticator &bull; Published by ONE Studio</p>
+    </div>
+
+    <div class="ios-group-label">Terms & Conditions</div>
+    <div class="ios-card-group">
+
+        <div class="term-row">
+            <div class="term-head">1. Acceptance of Terms</div>
+            <div class="term-body">
+                By downloading, installing, or using <strong>ONE Authenticator</strong>, provided by <strong>ONE Studio</strong> and created by developer <strong>Rafat Ahmed</strong>, you agree to be bound by these Terms of Use.
+            </div>
+        </div>
+
+        <div class="term-row">
+            <div class="term-head">2. User Responsibility & 2FA Keys</div>
+            <div class="term-body">
+                You are solely responsible for keeping your 2FA secret keys, backup records, and login credentials safe. ONE Studio does not hold master recovery keys to decrypt your records without your authenticated account session.
+            </div>
+        </div>
+
+        <div class="term-row">
+            <div class="term-head">3. Service Availability</div>
+            <div class="term-body">
+                While TOTP code generation operates 100% offline, optional cloud synchronization relies on internet connectivity and Firebase servers. ONE Studio is not liable for temporary network outages outside our control.
+            </div>
+        </div>
+
+        <div class="term-row">
+            <div class="term-head">4. Intellectual Property</div>
+            <div class="term-body">
+                All branding, graphics, code architecture, and UI designs associated with ONE Authenticator remain the exclusive intellectual property of ONE Studio and Rafat Ahmed.
+            </div>
+        </div>
+
+        <div class="term-row">
+            <div class="term-head">5. Disclaimer & Limitation of Liability</div>
+            <div class="term-body">
+                The application is provided "as is" without warranties of any kind. You agree that ONE Studio shall not be liable for any access loss resulting from forgotten passwords or un-backed-up devices.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 ONE Studio. All Rights Reserved.<br>
+        Developed by Rafat Ahmed
+    </footer>
+
+</body>
+</html>
